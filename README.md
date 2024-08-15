@@ -13,9 +13,10 @@ TODO
 
 ### Manual
 
-Run `make build` to get the binary `build/kubedebugger` built. Then run:
+Get the binary `build/kubedb` and copy it under `/usr/local/bin/` or your preferred location.
 
 ```sh
+$ make build
 $ chmod +x build/kubedb
 $ sudo cp build/kubedb /usr/local/bin/kubedb 
 ```
@@ -23,14 +24,14 @@ $ sudo cp build/kubedb /usr/local/bin/kubedb
 ## Prerequisites
 
 The following requirements should be met:
-1. kubeconfig file of your Kubernetes cluster should be saved under $HOME/.kube/config.
-2. The target Go application should be built with -gcflags='all=-N -l'.
-3. The target Go application should be up and running and target container should allow you to execute sh/bash to get process ID (PID).
+1. `kubeconfig` file of your Kubernetes cluster should be saved under $HOME/.kube/config.
+2. The target Go application should be built with `-gcflags='all=-N -l'` before running it.
+3. The target Go application should be running and target container should allow you to execute shell commands to get process ID (PID).
 4. A YAML file that describes the ephemeral container to launch is required and template is provided in this repository (pls see `/KubeDebugger/ephemeral.yaml`).
 
 ## Usage
 
-1. Make sure that target pod is up and running.
+1. Make sure that target pod is `Running`.
 
 ```sh
 $ kubectl get pod < pod name > -n < namespace >
