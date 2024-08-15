@@ -1,0 +1,12 @@
+name: delve
+image: gatici/delve:1.23
+securityContext:
+  privileged: true
+command:
+  - dlv
+  - --listen=127.0.0.1:2345
+  - --headless=true
+  - --accept-multiclient
+  - --api-version=2
+  - attach
+  - '< target PID >'
