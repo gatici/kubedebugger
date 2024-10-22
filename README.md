@@ -24,7 +24,7 @@ $ sudo cp build/kubedb /usr/local/bin/kubedb
 ## Prerequisites
 
 The following requirements should be met:
-1. `kubeconfig` file of your Kubernetes cluster should be saved under $HOME/.kube/config.
+1. `kubeconfig` file of your Kubernetes cluster should be saved under $HOME/.kube/config: `sudo microk8s kubectl config view --raw > $HOME/.kube/config`
 2. The target Go application should be built with `-gcflags='all=-N -l'` before running it.
 3. The target Go application should be running and target container should allow you to execute shell commands to get process ID (PID).
 4. A YAML file that describes the ephemeral container to launch is required and template is provided in this repository (pls see `/KubeDebugger/ephemeral.yaml`).
